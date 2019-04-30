@@ -11,6 +11,8 @@ import { GroundsComponent } from './coffeePages/grounds/grounds.component';
 import { WholeBeanComponent } from './coffeePages/whole-bean/whole-bean.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllComponent } from './coffeePages/all/all.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AllComponent } from './coffeePages/all/all.component';
     GroundsComponent,
     WholeBeanComponent,
     FooterComponent,
-    AllComponent
+    AllComponent,
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
