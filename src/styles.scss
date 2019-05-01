@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 .blockOneBg{
-    background: transparent url('./assets/coffeebeanscloseup.jpg') no-repeat center center /cover
+    background: transparent url('./assets/coffeeBeans/coffeebeanscloseup.jpg') no-repeat center center /cover 
+}
+.blockTwoBg{
+    background: transparent url('./assets/coffeeCup/coffeeCup.jpg') no-repeat center center /cover 
+}
+
+.minH{
+    height: 30vw;
 }

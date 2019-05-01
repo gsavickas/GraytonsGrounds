@@ -1,28 +1,37 @@
 <!-- Make the hamburger dropdown fixed to the right hand side -->
-<nav class="navbar-expand{-sm|-md|-lg|-xl} flex-column">
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-          <div class="bg-dark p-4">
-            <a class="btn width:40" href="../coffeePages/all/all.component.html" > <h4 class="text-white">Coffee</h4></a>
-            <a class="btn width:40"href="" > <h4 class="text-white"> About </h4></a>
-            <a class="btn width:40" href="" > <h4 class="text-white"> Contact </h4></a> <br>
-            <span class="text-muted">A better cup is only a few clicks away</span> <br>
-            <div>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-              </form>
-              </div>
-          </div>
-        </div>
-        <nav class="navbar navbar-dark bg-dark">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a href="../home-page/home-page.component.html" class="nav-brand btn-lg" role="button"> <h3 class="text-white">GG Icon</h3> </a> 
-          <nav class="navbar navbar-light bg-dark">
-              
-            </nav>
-        </nav>
-      </div>
-</nav>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+  <a href="../home-page/home-page.component.html" class="nav-brand">
+    GG Icon
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarToggleExternalContent">
+    <div class=" navbar-nav text-white ">
+      <a class="nav-link nav-item text-white" href="../coffeePages/all/all.component.html">
+        Coffee
+      </a>
+      <a class="nav-link nav-item text-white" href="../about-us/about-us.component.html">
+        About
+      </a>
+      <a class="nav-link nav-item text-white" href="../contact-us/contact-us.component.html">
+        Contact
+      </a> <a class="nav-link nav-item text-white" href="../registerPage/register/register.component.html">
+        Sign-up
+      </a>
+      <a class="nav-link nav-item text-white" href="../loginPage/login/login.component.html">
+          Login
+        </a>
+    </div>
+    <form class="form-inline">
+      <span class="text-muted mr-4">Grayton's Grounds - "Its all about the beans!" </span>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
+
+
+    <!-- </nav> -->

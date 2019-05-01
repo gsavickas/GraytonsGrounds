@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AllComponent } from './coffeePages/all/all.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { RegisterComponent } from './registerpage/register/register.component';
+import { LoginComponent } from './loginPage/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     FooterComponent,
     AllComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
