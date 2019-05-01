@@ -1,3 +1,82 @@
-<p>
-  register works!
-</p>
+
+
+<div class="container p-1">
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron bg-dark text-white">
+        <h2> Great Grounds, Great Prices</h2>
+        <span class="text-muted"> Register today and save</span>
+        <form name="form">
+          <div class="form-group">
+            <label for="firstName"> First Name </label>
+            <input class="form-control" type="text" placeholder="First Name" name="firstName" required minlength="3"
+              [(ngModel)]="user.firstName" #firstName="ngModel">
+            <div class="invalid-feedback">
+              <div>First Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastName"> Last Name </label>
+            <input class="form-control" type="text" placeholder="Last Name" name="lastName" required minlength="3"
+              maxlength="20" [(ngModel)]="user.lastName" #lastName="ngModel">
+            <div class="invalid-feedback">
+              <div>Last Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email"> Email Address </label>
+            <input class="form-control" type="text" placeholder="Email Address" name="email" required minlength="3"
+              maxlength="20" [(ngModel)]="user.email" #email="ngModel">
+            <div class="invalid-feedback">
+              <div>Email is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password"> Password </label>
+            <input class="form-control" type="text" placeholder="Min length of 8 characters" name="password" required
+              minlength="8" maxlength="32" [(ngModel)]="user.email" #email="ngModel">
+            <div class="invalid-feedback">
+              <div>Password is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password"> Password </label>
+            <input class="form-control" type="text" placeholder="Min length of 8 characters" name="password" required
+              minlength="8" maxlength="32" [(ngModel)]="user.email" #email="ngModel">
+            <div class="invalid-feedback">
+              <div>Passwords must match</div>
+            </div>
+          </div>
+          <div class="buttonArea d-flex-column">
+              <button  color="primary" routerLink=".">Create Account</button>
+              <button class="" color="dark" (click)="alert()">Already have an account?</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="loginForm">
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="User ID">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="Password">
+    </mat-form-field>
+
+</div>
+
+<div class="buttonArea">
+    <button mat-raised-button color="primary" (click)="alert()">Sign In</button>
+    <button mat-raised-button color="warn" routerLink=".">Create Profile</button>
+</div>
+
+<div class="footer"></div> -->
