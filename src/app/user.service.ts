@@ -13,7 +13,7 @@ export class UserService {
   private newUser: User;
   private userOn: boolean = false;
   private userName: String;
-  private uri = 'http://localHost:3000'
+
   private allUsers: Object [];
 
 
@@ -21,19 +21,7 @@ export class UserService {
   // This adds a User
   register(user: User) {
     console.log("hello", user.firstName);
-    // Trying to store user objects as arrays
-    // if (this.getUsers() != [])
-    // {
-    //   this.allUsers = getUsers() 
-    // }
-    // this.allUsers.forEach(i => {
-    //   if (this.allUsers[i] == this.newUser)
-    //   {
-    //     return;
-    //   } 
-    // });
-    
-    return this.http.post('${this.uri}/register', user);
+    return this.http.post(`users/register`, user);
   };
   setUsername(user: User) {
     this.userName = (user.firstName + user.lastName);
@@ -41,13 +29,14 @@ export class UserService {
     this.router.navigate(['coffee/main']);
   }
   getUsers(){ 
-    return this.http.get(`${this.uri}/users`)
+    return this.http.get(`/users/all`)
   }
   getUserByEmail(email){
 
   }
-  login() {
+  login(user: User) {
     console.log("Login Works");
+    return this.http.post(`users/login`, user);
   }
   
 }

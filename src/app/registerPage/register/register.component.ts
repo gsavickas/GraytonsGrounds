@@ -24,11 +24,8 @@ export class RegisterComponent implements OnInit {
   // Sent to userService
   onSubmit() {
     console.log(this.user)
-    alert(JSON.stringify(this.user))
     this.UserService.register(this.user).subscribe(res =>{
-      // if (res.body.){
-
-      // }
+      console.log(res);
     } );
   }
 

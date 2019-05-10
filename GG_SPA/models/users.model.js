@@ -3,26 +3,26 @@ const bcrypt = require("bcrypt");
 
 function create(req, res){
     console.log(req.body.email);
-    pool.query("SELECT * FROM GGUSER WHERE email = ?", 
+    pool.query("SELECT * FROM USERS WHERE email = ?", 
     [req.body.email], (err, queryReturn)=>{
-        console.log(err);
         if(queryReturn[0]){
-            return res.send("USER ALREADY EXISTS")
+            return res.send({message:"USER ALREADY EXISTS"})
         }
         let password = bcrypt.hashSync(req.body.password, 5);
-        let lastName = req.body.email;
-        pool.query("INSERT INTO USER (email, password) VALUES(?,?)", [email, password], (err, result)=>{
+        let email = req.body.email;
+        let firstName = req.body.firstName;
+        let lastName = req.body.lastName;
+        pool.query("INSERT INTO USERS (firstName, lastName, email, password) VALUES(?,?,?,?)", [firstName, lastName, email, password], (err, result)=>{
             if(!err){
-                return res.send("Signed Up!");
+                return res.send({message: "Signed Up!"});
             }
-            console.log(err);
             res.status(500).send({error: "SOMETHING BROKE"})
         })
     })    
 }
-
+ 
 function getAll(req, res){
-    pool.query("SELECT id, email FROM GGUSER", (err, result)=>{
+    pool.query("SELECT id, email FROM USERS", (err, result)=>{
         res.send({
             error: err,
             users: result
@@ -31,16 +31,16 @@ function getAll(req, res){
 }
 
 function login(req, res){
-    pool.query("SELECT * FROM GGUSER WHERE email = ?", [req.body.email], (err, result)=>{
+    pool.query("SELECT * FROM USERS WHERE email = ?", [req.body.email], (err, result)=>{
         if(result[0]){
             if( bcrypt.compareSync(req.body.password, result[0].password)){
                 return res.send({message: "Welcome Back!"})
             }
             else{
-                return res.send({error: "Incorrect user info or Password"});
+                return res.send({error: "Incorrect email or Password"});
             }
         }
-        res.send({error: "Incorrect user info or Password"})
+        res.send({error: "Incorrect email or Password"})
     })
 }
 
