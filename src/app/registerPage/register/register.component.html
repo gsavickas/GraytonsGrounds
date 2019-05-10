@@ -1,57 +1,69 @@
-
-
 <div class="container p-1">
   <div class="row">
     <div class="col-12">
       <div class="jumbotron bg-dark text-white">
-        <h2> Great Grounds, Great Prices</h2>
+        <h2> Great People deserve Great Grounds</h2>
         <span class="text-muted"> Register today and save</span>
-        <form name="form">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
           <div class="form-group">
             <label for="firstName"> First Name </label>
-            <input class="form-control" type="text" placeholder="First Name" name="firstName" required minlength="3"
-              [(ngModel)]="user.firstName" #firstName="ngModel">
-            <div class="invalid-feedback">
-              <div>First Name is required</div>
+            <input class="form-control" type="text" [(ngModel)]="user.firstName" #firstName="ngModel"
+              [ngClass]="{'is-invalid' : f.submitted && firstName.invalid}" placeholder="First Name" name="firstName"
+              required minlength="3" maxlength="20" />
+            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+              <div *ngIf="firstName.errors.required">First Name is required</div>
+              <div *ngIf="firstName.errors.minlength">First Name must be a length of 3 characters</div>
+              <div *ngIf="firstName.errors.maxlength">Fisrt Name cannot be longer than 20 characters</div>
             </div>
           </div>
           <div class="form-group">
             <label for="lastName"> Last Name </label>
-            <input class="form-control" type="text" placeholder="Last Name" name="lastName" required minlength="3"
-              maxlength="20" [(ngModel)]="user.lastName" #lastName="ngModel">
-            <div class="invalid-feedback">
-              <div>Last Name is required</div>
+            <input class="form-control" type="text" placeholder="Last Name" name="lastName" [(ngModel)]="user.lastName"
+              #lastName="ngModel" [ngClass]="{'is-invalid':f.submitted && lastName.invalid}" required minlength="3"
+              maxlength="20">
+            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+              <div *ngIf="lastName.errors.required">Last Name is required</div>
+              <div *ngIf="lastName.errors.minlength">Last Name must be a length of 3 characters</div>
+              <div *ngIf="lastName.errors.maxlength">Last Name cannot be longer than 20 characters</div>
             </div>
           </div>
           <div class="form-group">
             <label for="email"> Email Address </label>
-            <input class="form-control" type="text" placeholder="Email Address" name="email" required minlength="3"
-              maxlength="20" [(ngModel)]="user.email" #email="ngModel">
-            <div class="invalid-feedback">
-              <div>Email is required</div>
+            <input class="form-control" type="text" placeholder="Email Address" name="email" required email
+              [(ngModel)]="user.email" #email="ngModel" [ngClass]="{'is-invalid' : f.submitted && email.invalid}">
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div> Email is required</div>
+              <div *ngIf="email.errors.email">Must be a valid Email address</div>
             </div>
           </div>
           <div class="form-group">
             <label for="password"> Password </label>
-            <input class="form-control" type="text" placeholder="Min length of 8 characters" name="password" required
-              minlength="8" maxlength="32" [(ngModel)]="user.email" #email="ngModel">
-            <div class="invalid-feedback">
-              <div>Password is required</div>
+            <input class="form-control" type="password" placeholder="Min length of 8 characters" name="password"
+              [(ngModel)]="user.password" #password="ngModel" required minlength="8" maxlength="32"
+              [ngClass]="{'is-invalid':f.submitted && password.invalid}">
+            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">Password must be a length of 8 characters</div>
+              <div *ngIf="password.errors.maxlength">Password cannot be longer than 32 characters</div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="password"> Password </label>
-            <input class="form-control" type="text" placeholder="Min length of 8 characters" name="password" required
-              minlength="8" maxlength="32" [(ngModel)]="user.email" #email="ngModel">
-            <div class="invalid-feedback">
-              <div>Passwords must match</div>
+          <!-- BELOW SECTION IS FOR A CONFIRM PASSWORD SECTION -->
+
+          <!-- <div class="form-group">
+            <label for="confirmpassword"> Confirm Password </label>
+            <input class="form-control" type="password" placeholder="Confirm Password" name="confirmpassword" 
+            [(ngModel)]="user.confirmpassword" required #confirempassword="ngModel" pattern="{{ password.value }}" />
+            <div *ngIf="user.submitted && confirmpassword.invalid" class="invalid-feedback">
+              <div *ngIf="confirmpassword.errors.required"> Conformation is required</div>
+              <div *ngIf="confirmpassword.errors.pattern">Passwords must match</div>
             </div>
-          </div>
-          <div class="buttonArea d-flex-column">
-              <button  color="primary" routerLink=".">Create Account</button>
-              <button class="" color="dark" (click)="alert()">Already have an account?</button>
+          </div>-->
+
+           <div class="buttonArea d-flex-column form-group">
+            <button color="primary" routerLink=".">Create Account</button>
           </div>
         </form>
+        <button class="" color="dark" [routerLink]="['/login']">Already have an account?</button>
       </div>
     </div>
   </div>

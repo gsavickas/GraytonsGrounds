@@ -6,6 +6,8 @@ import { GroundsComponent } from './coffeePages/grounds/grounds.component';
 import { WholeBeanComponent } from './coffeePages/whole-bean/whole-bean.component';
 import { RegisterComponent } from './registerPage/register/register.component';
 import { LoginComponent } from './loginPage/login/login.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [ 
   {path: 'home', component: HomePageComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'coffee/whole-bean', component: WholeBeanComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'contact', component: ContactUsComponent},
+  {path: 'about', component: AboutUsComponent},
   {path: '**', redirectTo: 'home'}
   
 ];

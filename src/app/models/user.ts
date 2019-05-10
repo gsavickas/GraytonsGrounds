@@ -4,3 +4,8 @@ export interface User{
     email: string,
     password: string
 }
+interface cleanUser{
+    firstName: string,
+    lastName: string,
+    email: string
+}
