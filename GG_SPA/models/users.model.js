@@ -6,7 +6,7 @@ function create(req, res){
     pool.query("SELECT * FROM USERS WHERE email = ?", 
     [req.body.email], (err, queryReturn)=>{
         if(queryReturn[0]){
-            return res.send({message:"USER ALREADY EXISTS"})
+            return res.send({error:"USER ALREADY EXISTS"})
         }
         let password = bcrypt.hashSync(req.body.password, 5);
         let email = req.body.email;

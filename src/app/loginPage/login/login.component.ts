@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/user.service';
+import { error } from 'util';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,15 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.user)
     this.UserService.login(this.user).subscribe(res =>{
-      console.log(res);
+      if (res['err'])
+      {
+        console.log(error)
+      }
+      else
+      {
+
+      }
+
     } );
   }
 }

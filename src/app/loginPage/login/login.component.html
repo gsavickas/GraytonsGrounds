@@ -6,33 +6,6 @@
         <span class="text-muted"> Welcome Back </span>
         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
-          <!-- I don't need a first name -->
-
-          <!-- <div class="form-group">
-            <label for="firstName"> First Name </label>
-            <input class="form-control" type="text" [(ngModel)]="user.firstName" #firstName="ngModel"
-              [ngClass]="{'is-invalid' : f.submitted && firstName.invalid}" placeholder="First Name" name="firstName"
-              required minlength="3" maxlength="20" />
-            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
-              <div *ngIf="firstName.errors.required">First Name is required</div>
-              <div *ngIf="firstName.errors.minlength">First Name must be a length of 3 characters</div>
-              <div *ngIf="firstName.errors.maxlength">Fisrt Name cannot be longer than 20 characters</div>
-            </div>
-          </div> -->
-
-          <!-- I don't need a last name -->
-
-          <!-- <div class="form-group">
-            <label for="lastName"> Last Name </label>
-            <input class="form-control" type="text" placeholder="Last Name" name="lastName" [(ngModel)]="user.lastName"
-              #lastName="ngModel" [ngClass]="{'is-invalid':f.submitted && lastName.invalid}" required minlength="3"
-              maxlength="20">
-            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
-              <div *ngIf="lastName.errors.required">Last Name is required</div>
-              <div *ngIf="lastName.errors.minlength">Last Name must be a length of 3 characters</div>
-              <div *ngIf="lastName.errors.maxlength">Last Name cannot be longer than 20 characters</div>
-            </div>
-          </div> -->
           <div class="form-group">
             <label for="email"> Email Address </label>
             <input class="form-control" type="text" placeholder="Email Address" name="email" required email
@@ -53,17 +26,6 @@
               <div *ngIf="password.errors.maxlength">Password cannot be longer than 32 characters</div>
             </div>
           </div>
-          <!-- BELOW SECTION IS FOR A CONFIRM PASSWORD SECTION -->
-
-          <!-- <div class="form-group">
-            <label for="confirmpassword"> Confirm Password </label>
-            <input class="form-control" type="password" placeholder="Confirm Password" name="confirmpassword" 
-            [(ngModel)]="user.confirmpassword" required #confirempassword="ngModel" pattern="{{ password.value }}" />
-            <div *ngIf="user.submitted && confirmpassword.invalid" class="invalid-feedback">
-              <div *ngIf="confirmpassword.errors.required"> Conformation is required</div>
-              <div *ngIf="confirmpassword.errors.pattern">Passwords must match</div>
-            </div>
-          </div>-->
 
            <div class="buttonArea d-flex-column form-group">
             <button color="primary" routerLink=".">Login</button>
@@ -73,4 +35,7 @@
       </div>
     </div>
   </div>
+<div *ngIf="error">Incorrect Email or Password</div>
 </div>
+
+<!-- TODO add errors invalid email or password  -->
