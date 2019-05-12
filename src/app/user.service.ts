@@ -38,5 +38,11 @@ export class UserService {
     console.log("Login Works");
     return this.http.post(`users/login`, user);
   }
+  isLoggedIn(){
+    return this.userOn;
+  }
+  logOut(){
+    this.userOn = false;
+  }
   
 }
