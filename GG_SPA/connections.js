@@ -5,7 +5,8 @@ let pool = mysql.createPool({
     host: "localhost",
     user: "GGAdmin",
     password: "admin",
-    database: "GGUsers"
+    database: "process.env.GGUsers"
+    
 });
 
 module.exports.pool = pool;
