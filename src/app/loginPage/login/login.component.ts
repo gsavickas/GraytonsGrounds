@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     email : "",
     password : ""
   }
+  error: boolean = false;
 
   constructor(private UserService : UserService) { }
 
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.UserService.login(this.user).subscribe(res =>{
       if (res['err'])
       {
-        console.log(error)
+        console.log(res['error'])
       }
       else
       {
