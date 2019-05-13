@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 function create(req, res){
     console.log(req.body.email);
-    pool.query("SELECT * FROM USERS WHERE email = ?", 
+    pool.query("SELECT * FROM users WHERE email = ?", 
     [req.body.email], (err, queryReturn)=>{
         if(queryReturn[0]){
             return res.send({error:"USER ALREADY EXISTS"})
@@ -12,7 +12,7 @@ function create(req, res){
         let email = req.body.email;
         let firstName = req.body.firstName;
         let lastName = req.body.lastName;
-        pool.query("INSERT INTO USERS (firstName, lastName, email, password) VALUES(?,?,?,?)", [firstName, lastName, email, password], (err, result)=>{
+        pool.query("INSERT INTO users (firstName, lastName, email, password) VALUES(?,?,?,?)", [firstName, lastName, email, password], (err, result)=>{
             if(!err){
                 return res.send({message: "Signed Up!"});
             }
@@ -22,7 +22,7 @@ function create(req, res){
 }
  
 function getAll(req, res){
-    pool.query("SELECT id, email FROM USERS", (err, result)=>{
+    pool.query("SELECT id, email FROM users", (err, result)=>{
         res.send({
             error: err,
             users: result
@@ -31,7 +31,7 @@ function getAll(req, res){
 }
 
 function login(req, res){
-    pool.query("SELECT * FROM USERS WHERE email = ?", [req.body.email], (err, result)=>{
+    pool.query("SELECT * FROM users WHERE email = ?", [req.body.email], (err, result)=>{
         if(result[0]){
             if( bcrypt.compareSync(req.body.password, result[0].password)){
                 return res.send({message: "Welcome Back!"})
