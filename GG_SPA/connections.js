@@ -1,12 +1,12 @@
 const mysql = require("mysql");
-const config = require("..config/");
+// const config = require("../config");
 let pool = mysql.createPool({
     connectionLimit: 10,
     port: 3306,
-    host: "process.env.DBhost",
-    user: "process.env.DBuser",
-    password: "process.env.DBpassword",
-    database: "process.env.DBdatbase"
+    host: process.env.DBhost,
+    user: process.env.DBuser,
+    password: process.env.DBpassword,
+    database: process.env.DBdatbase
     
 });
 
