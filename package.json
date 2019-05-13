@@ -1,6 +1,9 @@
 {
   "name": "graytons-grounds",
   "version": "0.0.0",
+  "engines": {
+    "node": "v11.14.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,6 +14,7 @@
     "front": "ng build --watch",
     "back": "nodemon server"
   },
+
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
