@@ -5,6 +5,7 @@ function create(req, res){
     console.log(req.body.email);
     pool.query("SELECT * FROM users WHERE email = ?", 
     [req.body.email], (err, queryReturn)=>{
+        console.log(err);
         if(queryReturn[0]){
             return res.send({error:"USER ALREADY EXISTS"})
         }
