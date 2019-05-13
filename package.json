@@ -2,7 +2,7 @@
   "name": "graytons-grounds",
   "version": "0.0.0",
   "engines": {
-    "node": "v11.14.0"
+    "node": "11.14.0"
   },
   "scripts": {
     "ng": "ng",
