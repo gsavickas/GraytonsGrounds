@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 //import { GG_SPA } from 'GG_SPA/models/users.model.js';
 
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,14 @@ export class UserService {
   private newUser: User;
   private userOn: boolean = false;
   private userName: String;
-
+  
   private allUsers: Object [];
+  isLogged = new BehaviorSubject<boolean>(false);
 
+  saveUser(user){
+    this.isLogged.next(true);
+    this.router.navigate(['./coffee/main']);
+  }
 
   constructor(private router: Router, private http: HttpClient) { }
   // This adds a User
@@ -41,6 +47,8 @@ export class UserService {
   isLoggedIn(){
     return this.userOn;
   }
+
+
   logOut(){
     this.userOn = false;
   }

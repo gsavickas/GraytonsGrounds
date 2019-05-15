@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,9 +9,19 @@ import { Router } from '@angular/router'
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  isLogged:boolean;
+  isSigned:boolean;
+
+  constructor(private router: Router, private userService: UserService) { 
+    this.userService.isLogged.subscribe(val =>{
+      this.isLogged = val;
+    })
+  }
+  
 
   ngOnInit() {
   }
+
+
 
 }
